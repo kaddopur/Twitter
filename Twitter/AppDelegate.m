@@ -45,20 +45,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [[TwitterClient sharedInstance] fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
-        NSLog(@"get access token %@", accessToken);
-        
-        [[TwitterClient sharedInstance].requestSerializer saveAccessToken:accessToken];
-        
-        [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            User *user = [[User alloc] initWithDictionary:responseObject];
-            NSLog(@"%@", user.name);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"fialed to get user");
-        }];
-    } failure:^(NSError *error) {
-        NSLog(@"failed to get access token");
-    }];
+    [[TwitterClient sharedInstance] openURL:url];
     
     return YES;
 }
