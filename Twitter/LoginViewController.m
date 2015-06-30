@@ -36,13 +36,11 @@
 */
 
 - (IBAction)onLogin:(id)sender {
+    [[TwitterClient sharedInstance].requestSerializer removeAccessToken];
     [[TwitterClient sharedInstance] fetchRequestTokenWithPath:@"oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"twittercjhuang://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSLog(@"request token %@", requestToken);
         
         NSURL *authURL = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", requestToken.token]];
-        
-        
-        NSLog(@"%@", authURL);
         [[UIApplication sharedApplication] openURL:authURL];
     }
   failure:^(NSError *error) {

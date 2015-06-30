@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TwitterClient.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +41,24 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[TwitterClient sharedInstance] fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
+        NSLog(@"get access token %@", accessToken);
+        
+        [[TwitterClient sharedInstance].requestSerializer saveAccessToken:accessToken];
+        
+        [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@", responseObject[@"name"]);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"fialed to get user");
+        }];
+    } failure:^(NSError *error) {
+        NSLog(@"failed to get access token");
+    }];
+    
+    return YES;
 }
 
 @end
