@@ -37,6 +37,36 @@
             </objects>
             <point key="canvasLocation" x="162.66666666666666" y="406.12"/>
         </scene>
+        <!--Tweets View Controller-->
+        <scene sceneID="wlS-N1-NmA">
+            <objects>
+                <viewController storyboardIdentifier="TweetsViewController" id="bg0-hQ-g2F" customClass="TweetsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="htZ-da-c8H"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mne-WZ-Y1H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JS6-MA-9vn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04P-1W-rD5">
+                                <rect key="frame" x="103" y="273" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="04P-1W-rD5" secondAttribute="centerY" id="RzA-pa-2K5"/>
+                            <constraint firstAttribute="centerX" secondItem="04P-1W-rD5" secondAttribute="centerX" id="mYv-OS-xCA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mha-L1-G35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="406"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
