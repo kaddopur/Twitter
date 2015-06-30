@@ -10,4 +10,6 @@
 
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 
++ (TwitterClient *)sharedInstance;
+
 @end

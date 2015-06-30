@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "TwitterClient.h"
 
 @interface LoginViewController ()
 
@@ -35,7 +36,18 @@
 */
 
 - (IBAction)onLogin:(id)sender {
-    
+    [[TwitterClient sharedInstance] fetchRequestTokenWithPath:@"oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"twittercjhuang://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
+        NSLog(@"request token %@", requestToken);
+        
+        NSURL *authURL = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", requestToken.token]];
+        
+        
+        NSLog(@"%@", authURL);
+        [[UIApplication sharedApplication] openURL:authURL];
+    }
+  failure:^(NSError *error) {
+        NSLog(@"failed to get request token");
+    }];
 }
 
 @end
