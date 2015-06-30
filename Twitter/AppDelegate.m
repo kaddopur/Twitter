@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TwitterClient.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -50,7 +51,8 @@
         [[TwitterClient sharedInstance].requestSerializer saveAccessToken:accessToken];
         
         [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"%@", responseObject[@"name"]);
+            User *user = [[User alloc] initWithDictionary:responseObject];
+            NSLog(@"%@", user.name);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"fialed to get user");
         }];
