@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="162.66666666666666" y="406.12"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Home-->
         <scene sceneID="wlS-N1-NmA">
             <objects>
                 <viewController storyboardIdentifier="TweetsViewController" id="bg0-hQ-g2F" customClass="TweetsViewController" sceneMemberID="viewController">
@@ -62,8 +62,27 @@
                             <constraint firstAttribute="centerX" secondItem="04P-1W-rD5" secondAttribute="centerX" id="mYv-OS-xCA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Home" id="KxF-tL-f1W"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mha-L1-G35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="406"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YqR-6N-iAj">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Wds-eE-3Vu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a2T-TK-eDy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bg0-hQ-g2F" kind="relationship" relationship="rootViewController" id="llk-Vp-taS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9s9-SN-elo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552" y="406"/>
         </scene>
