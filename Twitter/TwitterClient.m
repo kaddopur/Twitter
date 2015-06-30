@@ -46,6 +46,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         
         [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             User *user = [[User alloc] initWithDictionary:responseObject];
+            [User setCurrentUser:user];
             self.loginCompletion(user, nil);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"fialed to get user");

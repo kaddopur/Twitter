@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TwitterClient.h"
 #import "User.h"
+#import "TweetsViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +19,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    User *user = [User currentUser];
+    
+    if (user != nil) {
+        NSLog(@"welcome %@", user.name);
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *navigationVC = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        TweetsViewController *vc = [navigationVC.viewControllers objectAtIndex:0];
+        vc.user = user;
+        
+        self.window.rootViewController = vc;
+    } else {
+        NSLog(@"not logged in");
+    }
     return YES;
 }
 

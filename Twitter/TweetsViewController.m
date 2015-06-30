@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"user from LoginViewController %@", self.user);
+    NSLog(@"user from LoginViewController %@", self.user.name);
 }
 
 - (void)didReceiveMemoryWarning {
