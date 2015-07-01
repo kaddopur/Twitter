@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextViewHeight;
 
 @end

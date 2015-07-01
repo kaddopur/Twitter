@@ -30,16 +30,17 @@
 #pragma mark - View Helpers
 
 - (void)defaultViewWithTweet {
-    self.nameLabel.text = self.tweet.user.name;
-    self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
-    [self.profileImage setImageWithURL:self.tweet.user.profileImageURL];
+    _nameLabel.text = _tweet.user.name;
+    _screenNameLabel.text = [NSString stringWithFormat:@"@%@", _tweet.user.screenName];
+    [_profileImage setImageWithURL:_tweet.user.profileImageURL];
     
-    self.textView.text = self.tweet.text;
-    [self.textView setFont:[UIFont systemFontOfSize:15]];
-    [self.textView layoutIfNeeded];
-    [self.textView updateConstraints];
+    _textView.text = self.tweet.text;
+    _textView.font = [UIFont systemFontOfSize:16];
+    _constraintTextViewHeight.constant = ceilf([_textView sizeThatFits:CGSizeMake(_textView.frame.size.width, FLT_MAX)].height);
+    
+    [_textView layoutIfNeeded];
+    [_textView updateConstraints];
 }
-
 
 /*
 #pragma mark - Navigation
