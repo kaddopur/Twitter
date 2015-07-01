@@ -60,7 +60,7 @@
     Tweet *tweet = self.tweets[indexPath.row];
     
     cell.nameLabel.text = tweet.user.name;
-    cell.screenNameLabel.text = tweet.user.screenName;
+    cell.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.tweetTextLabel.text = tweet.text;
     [cell.profileImage setImageWithURL:tweet.user.profileImageURL];
     cell.createdAtLabel.text = [Tweet timeAgoStringWith:tweet];
