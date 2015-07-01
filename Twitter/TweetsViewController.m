@@ -20,7 +20,7 @@
     [super viewDidLoad];
 
     [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-        NSLog(@"%@", tweets);
+//        NSLog(@"%@", tweets);
     }];
 }
 
