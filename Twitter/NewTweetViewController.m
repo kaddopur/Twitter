@@ -9,6 +9,7 @@
 #import "NewTweetViewController.h"
 #import "UIImageVIew+AFNetworking.h"
 #import "User.h"
+#import "TwitterClient.h"
 
 @interface NewTweetViewController ()
 
@@ -65,5 +66,16 @@
 }
 
 - (IBAction)onTweet:(id)sender {
+    if (self.textView.text.length == 0) {
+        return;
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:self.textView.text forKey:@"status"];
+    
+    [[TwitterClient sharedInstance] updateStatusWithParams:params completion:^(Tweet *tweet, NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
+
 @end
