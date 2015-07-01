@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewTweetViewController : UIViewController
+@interface NewTweetViewController : UIViewController <UITextViewDelegate>
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onTweet:(id)sender;
@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 
 @end

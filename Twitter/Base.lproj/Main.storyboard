@@ -97,8 +97,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jason C. Huang" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnp-2e-33Z">
-                                <rect key="frame" x="72" y="88" width="232" height="16"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <rect key="frame" x="72" y="86" width="232" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -112,8 +112,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@kaddopur" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxt-bA-KHt">
-                                <rect key="frame" x="72" y="104" width="232" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="@kaddopur" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxt-bA-KHt">
+                                <rect key="frame" x="72" y="104" width="201" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-fQ-dEQ">
+                                <rect key="frame" x="281" y="104" width="23" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -125,13 +131,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="wnp-2e-33Z" secondAttribute="trailing" id="139-oB-yaV"/>
                             <constraint firstItem="q9X-Nt-FlE" firstAttribute="top" secondItem="QYC-yq-sSA" secondAttribute="bottom" constant="12" id="17A-LX-nrU"/>
                             <constraint firstItem="wnp-2e-33Z" firstAttribute="leading" secondItem="q9X-Nt-FlE" secondAttribute="trailing" constant="8" id="9i8-HF-o9v"/>
+                            <constraint firstItem="dvD-fQ-dEQ" firstAttribute="baseline" secondItem="Hxt-bA-KHt" secondAttribute="baseline" id="9oe-lZ-ftJ"/>
                             <constraint firstItem="Nc7-4s-zJ0" firstAttribute="leading" secondItem="2Lb-e3-kes" secondAttribute="leadingMargin" id="Gyw-nz-wdr"/>
                             <constraint firstItem="Nc7-4s-zJ0" firstAttribute="trailing" secondItem="2Lb-e3-kes" secondAttribute="trailingMargin" id="I9R-aS-94w"/>
-                            <constraint firstItem="wnp-2e-33Z" firstAttribute="top" secondItem="QYC-yq-sSA" secondAttribute="bottom" constant="24" id="Xza-EU-7Rb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hxt-bA-KHt" secondAttribute="trailing" id="YE2-xh-3mS"/>
+                            <constraint firstItem="wnp-2e-33Z" firstAttribute="top" secondItem="QYC-yq-sSA" secondAttribute="bottom" constant="22" id="Xza-EU-7Rb"/>
                             <constraint firstItem="Hxt-bA-KHt" firstAttribute="top" secondItem="wnp-2e-33Z" secondAttribute="bottom" id="YOM-9o-y4d"/>
                             <constraint firstItem="q9X-Nt-FlE" firstAttribute="leading" secondItem="2Lb-e3-kes" secondAttribute="leadingMargin" id="mRc-h4-O1P"/>
+                            <constraint firstItem="dvD-fQ-dEQ" firstAttribute="leading" secondItem="Hxt-bA-KHt" secondAttribute="trailing" constant="8" id="nlf-pY-5G3"/>
                             <constraint firstItem="Nc7-4s-zJ0" firstAttribute="top" secondItem="q9X-Nt-FlE" secondAttribute="bottom" id="q6P-Mj-vnX"/>
+                            <constraint firstItem="dvD-fQ-dEQ" firstAttribute="trailing" secondItem="2Lb-e3-kes" secondAttribute="trailingMargin" id="zw3-Vf-QTh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z3N-Wy-TTP">
@@ -148,6 +156,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="q9X-Nt-FlE" id="scx-P2-TzA"/>
+                        <outlet property="lengthLabel" destination="dvD-fQ-dEQ" id="18W-Cu-bl3"/>
                         <outlet property="nameLabel" destination="wnp-2e-33Z" id="phN-M0-022"/>
                         <outlet property="screenNameLabel" destination="Hxt-bA-KHt" id="soy-fl-pU5"/>
                         <outlet property="textView" destination="Nc7-4s-zJ0" id="QG3-il-jiK"/>

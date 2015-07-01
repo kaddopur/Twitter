@@ -21,7 +21,9 @@
     
     User *user = [User currentUser];
     
-    [self updateViewWithUser:user];
+    [self defaultViewWithUser:user];
+    
+    self.textView.delegate = self;
     [self.textView becomeFirstResponder];
 }
 
@@ -32,11 +34,20 @@
 
 #pragma mark - View Helpers
 
-- (void)updateViewWithUser:(User *)user {
+- (void)defaultViewWithUser:(User *)user {
     self.nameLabel.text = user.name;
     self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
     self.textView.text = @"";
+    self.lengthLabel.text = @"140";
     [self.imageView setImageWithURL:user.profileImageURL];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return textView.text.length - range.length + text.length <= 140;
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.lengthLabel.text = [NSString stringWithFormat:@"%ld", 140 - textView.text.length];
 }
 
 /*
