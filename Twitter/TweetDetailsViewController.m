@@ -8,6 +8,7 @@
 
 #import "TweetDetailsViewController.h"
 #import "UIImageVIew+AFNetworking.h"
+#import "TwitterClient.h"
 
 @interface TweetDetailsViewController ()
 
@@ -71,6 +72,16 @@
 }
 
 - (IBAction)onRetweet:(id)sender {
+    _tweet.retweeted = !_tweet.retweeted;
+    if (_tweet.retweeted) {
+        [_retweetButton setImage:[UIImage imageNamed:@"retweet-on.png"] forState:UIControlStateNormal];
+    } else {
+        [_retweetButton setImage:[UIImage imageNamed:@"retweet-default.png"] forState:UIControlStateNormal];
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:_tweet.IDStr forKey:@"id_str"];
+    [[TwitterClient sharedInstance] retweetWithParams:params completion:^(Tweet *tweet, NSError *error) {}];
 }
 
 - (IBAction)onFavorite:(id)sender {

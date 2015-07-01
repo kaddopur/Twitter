@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSDate *createdAt;
 @property (assign, nonatomic) BOOL retweeted;
 @property (assign, nonatomic) BOOL favorited;
+@property (strong, nonatomic) NSString *IDStr;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

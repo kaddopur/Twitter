@@ -16,6 +16,7 @@
     
     if (self) {
         self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
+        self.IDStr = dictionary[@"id_str"];
         self.text = dictionary[@"text"];
         self.favoriteCount = [dictionary[@"favorite_count"] intValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];

@@ -26,4 +26,6 @@
 
 - (void)updateStatusWithParams:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion;
 
+- (void)retweetWithParams:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion;
+
 @end
