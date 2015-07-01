@@ -69,6 +69,8 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
         completion(tweets, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failed to fetch home timeline");
+        NSLog(@"%@", error);
         completion(nil, error);
     }];
 }

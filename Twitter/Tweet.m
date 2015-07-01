@@ -23,7 +23,7 @@
         NSString *createdAtString = dictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
-        
+
         self.createdAt = [formatter dateFromString:createdAtString];
     }
     
@@ -38,6 +38,23 @@
     }
     
     return tweets;
+}
+
++ (NSString *)timeAgoStringWith:(Tweet *)tweet {
+    NSDate *now = [NSDate date];
+    NSTimeInterval ago = [now timeIntervalSinceDate:tweet.createdAt];
+    
+    if (ago > 86400) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"d/M/y";
+        return [formatter stringFromDate:tweet.createdAt];
+    } else if (ago > 3600) {
+        return [NSString stringWithFormat:@"%dh", (int)ago/3600];
+    } else if (ago > 60) {
+        return [NSString stringWithFormat:@"%dm", (int)ago/60];
+    } else {
+        return @"just now";
+    }
 }
 
 @end

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface TweetsViewController : UIViewController
+@interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)onSignout:(id)sender;
 

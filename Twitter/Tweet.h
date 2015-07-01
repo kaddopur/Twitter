@@ -21,4 +21,6 @@
 
 + (NSArray *)tweetsWithArray:(NSArray *)array;
 
++ (NSString *)timeAgoStringWith:(Tweet *)tweet;
+
 @end
