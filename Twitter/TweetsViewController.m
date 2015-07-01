@@ -85,10 +85,13 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    TweetDetailsViewController *vc = segue.destinationViewController;
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UIViewController *vc = segue.destinationViewController;
+    NSString *className = NSStringFromClass(vc.class);
     
-    vc.tweet = self.tweets[indexPath.row];
+    if ([className isEqualToString:@"TweetDetailsViewController"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ((TweetDetailsViewController *)vc).tweet = self.tweets[indexPath.row];
+    }
 }
 
 - (IBAction)onSignout:(id)sender {
