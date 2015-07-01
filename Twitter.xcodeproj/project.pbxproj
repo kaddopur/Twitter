@@ -125,6 +125,7 @@
 		AE726C4E1B42C285008C3C3D /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				AEB87BDE1B43AF5000C76D4B /* Views */,
 				AE8906351B42FA440022D493 /* Models */,
 				AE8906311B42CE2B0022D493 /* Api */,
 				AE89062D1B42CDAD0022D493 /* Controllers */,
@@ -193,6 +194,13 @@
 				AE8906371B42FA620022D493 /* User.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		AEB87BDE1B43AF5000C76D4B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

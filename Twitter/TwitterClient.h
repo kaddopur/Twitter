@@ -21,4 +21,6 @@
 
 - (void)openURL:(NSURL *)url;
 
+- (void)homeTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion;
+
 @end

@@ -18,13 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    User *user = [User currentUser];
-    
-    NSLog(@"user from LoginViewController %@", user.name);
-    NSLog(@"user from LoginViewController %@", user.screenName);
-    NSLog(@"user from LoginViewController %@", user.profileImageURL);
+
+    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+        NSLog(@"%@", tweets);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
