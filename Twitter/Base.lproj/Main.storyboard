@@ -311,18 +311,27 @@
                                 <state key="normal" image="retweet-default">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onRetweet:" destination="oe7-fG-H4H" eventType="touchUpInside" id="AjW-MO-AL7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3T-rk-TDf">
                                 <rect key="frame" x="16" y="320" width="91" height="22"/>
                                 <state key="normal" image="reply-default">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onReply:" destination="oe7-fG-H4H" eventType="touchUpInside" id="I60-kD-P7b"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyt-hj-9tI">
                                 <rect key="frame" x="213" y="320" width="91" height="22"/>
                                 <state key="normal" image="favorite-default">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onFavorite:" destination="oe7-fG-H4H" eventType="touchUpInside" id="Ora-IJ-qZv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="188" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcC-3l-Ugz">
                                 <rect key="frame" x="16" y="280" width="23" height="16"/>
@@ -383,14 +392,17 @@
                             <constraint firstItem="32z-bv-Wb9" firstAttribute="top" secondItem="PPU-I9-s6B" secondAttribute="bottom" constant="8" id="zOo-2k-G70"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="0Fy-QN-pcr">
-                        <barButtonItem key="rightBarButtonItem" title="Reply" id="GgV-Eo-Mjy"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tweet" id="0Fy-QN-pcr"/>
                     <connections>
                         <outlet property="constraintTextViewHeight" destination="cPz-Pu-57I" id="aaT-Gq-hiC"/>
                         <outlet property="createdAtLabel" destination="XGU-6h-pjb" id="jk9-yl-Z5J"/>
+                        <outlet property="favoriteButton" destination="Lyt-hj-9tI" id="bek-bb-ois"/>
+                        <outlet property="favoritesLabel" destination="qiq-nl-QJ4" id="HOn-E7-Mf1"/>
                         <outlet property="nameLabel" destination="I8a-Mm-hjl" id="Z0G-KW-ETe"/>
                         <outlet property="profileImage" destination="PPU-I9-s6B" id="Hoe-Li-q6c"/>
+                        <outlet property="replyButton" destination="i3T-rk-TDf" id="QcP-o6-4ll"/>
+                        <outlet property="retweetButton" destination="Qbl-gJ-pHH" id="PRp-OK-L0X"/>
+                        <outlet property="retweetsLabel" destination="zcC-3l-Ugz" id="ecE-Ay-9eo"/>
                         <outlet property="screenNameLabel" destination="o41-62-KyA" id="dXF-q1-2ay"/>
                         <outlet property="textView" destination="32z-bv-Wb9" id="T0d-5d-TDD"/>
                     </connections>

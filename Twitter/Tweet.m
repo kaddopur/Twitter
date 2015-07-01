@@ -19,6 +19,8 @@
         self.text = dictionary[@"text"];
         self.favoriteCount = [dictionary[@"favorite_count"] intValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
+        self.retweeted = [dictionary[@"retweeted"] boolValue];
+        self.favorited = [dictionary[@"favorited"] boolValue];
         
         NSString *createdAtString = dictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

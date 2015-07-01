@@ -19,7 +19,6 @@
     [super viewDidLoad];
     
     [self defaultViewWithTweet];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,9 +33,25 @@
     _screenNameLabel.text = [NSString stringWithFormat:@"@%@", _tweet.user.screenName];
     [_profileImage setImageWithURL:_tweet.user.profileImageURL];
     
-    _textView.text = self.tweet.text;
+    _textView.text = _tweet.text;
     _textView.font = [UIFont systemFontOfSize:16];
     _constraintTextViewHeight.constant = ceilf([_textView sizeThatFits:CGSizeMake(_textView.frame.size.width, FLT_MAX)].height);
+    
+    _retweetsLabel.text = [NSString stringWithFormat:@"%ld",_tweet.retweetCount];
+    _favoritesLabel.text = [NSString stringWithFormat:@"%ld",_tweet.favoriteCount];
+    
+    if (_tweet.retweeted) {
+        [_retweetButton setImage:[UIImage imageNamed:@"retweet-on.png"] forState:UIControlStateNormal];
+    } else {
+        [_retweetButton setImage:[UIImage imageNamed:@"retweet-default.png"] forState:UIControlStateNormal];
+    }
+    
+    if (_tweet.favorited) {
+        [_favoriteButton setImage:[UIImage imageNamed:@"favorite-on.png"] forState:UIControlStateNormal];
+    } else {
+        [_favoriteButton setImage:[UIImage imageNamed:@"favorite-default.png"] forState:UIControlStateNormal];
+    }
+    
     
     [_textView layoutIfNeeded];
     [_textView updateConstraints];
@@ -52,4 +67,12 @@
 }
 */
 
+- (IBAction)onReply:(id)sender {
+}
+
+- (IBAction)onRetweet:(id)sender {
+}
+
+- (IBAction)onFavorite:(id)sender {
+}
 @end

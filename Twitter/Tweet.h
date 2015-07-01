@@ -16,6 +16,8 @@
 @property (assign, nonatomic) NSUInteger favoriteCount;
 @property (assign, nonatomic) NSUInteger retweetCount;
 @property (strong, nonatomic) NSDate *createdAt;
+@property (assign, nonatomic) BOOL retweeted;
+@property (assign, nonatomic) BOOL favorited;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
