@@ -80,10 +80,20 @@
     }
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:_tweet.IDStr forKey:@"id_str"];
+    [params setObject:_tweet.IDStr forKey:@"id"];
     [[TwitterClient sharedInstance] retweetWithParams:params completion:^(Tweet *tweet, NSError *error) {}];
 }
 
 - (IBAction)onFavorite:(id)sender {
+    _tweet.favorited = !_tweet.favorited;
+    if (_tweet.favorited) {
+        [_favoriteButton setImage:[UIImage imageNamed:@"favorite-on.png"] forState:UIControlStateNormal];
+    } else {
+        [_favoriteButton setImage:[UIImage imageNamed:@"favorite-default.png"] forState:UIControlStateNormal];
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:_tweet.IDStr forKey:@"id"];
+    [[TwitterClient sharedInstance] favoriteWithParams:params completion:^(Tweet *tweet, NSError *error) {}];
 }
 @end
