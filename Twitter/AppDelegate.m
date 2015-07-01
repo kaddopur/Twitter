@@ -25,11 +25,9 @@
         NSLog(@"welcome %@", user.name);
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UINavigationController *navigationVC = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-        TweetsViewController *vc = [navigationVC.viewControllers objectAtIndex:0];
-        vc.user = user;
+        UINavigationController *navigationVC = [storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
         
-        self.window.rootViewController = vc;
+        self.window.rootViewController = navigationVC;
     } else {
         NSLog(@"not logged in");
     }

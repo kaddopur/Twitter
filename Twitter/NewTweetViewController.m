@@ -1,33 +1,42 @@
 //
-//  TweetsViewController.m
+//  NewTweetViewController.m
 //  Twitter
 //
 //  Created by Jason Huang on 7/1/15.
 //  Copyright (c) 2015 Jason Huang. All rights reserved.
 //
 
-#import "TweetsViewController.h"
+#import "NewTweetViewController.h"
+#import "UIImageVIew+AFNetworking.h"
+#import "User.h"
 
-@interface TweetsViewController ()
+@interface NewTweetViewController ()
 
 @end
 
-@implementation TweetsViewController
+@implementation NewTweetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     User *user = [User currentUser];
     
-    NSLog(@"user from LoginViewController %@", user.name);
-    NSLog(@"user from LoginViewController %@", user.screenName);
-    NSLog(@"user from LoginViewController %@", user.profileImageURL);
+    [self updateViewWithUser:user];
+    [self.textView becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - View Helpers
+
+- (void)updateViewWithUser:(User *)user {
+    self.nameLabel.text = user.name;
+    self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
+    self.textView.text = @"";
+    [self.imageView setImageWithURL:user.profileImageURL];
 }
 
 /*
@@ -40,4 +49,10 @@
 }
 */
 
+- (IBAction)onCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onTweet:(id)sender {
+}
 @end

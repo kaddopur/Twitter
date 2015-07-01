@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		609AA31930DAB99A01924D2D /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 754364B2F33A3141C0907519 /* libPods-Twitter.a */; };
 		AE726C521B42C285008C3C3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE726C511B42C285008C3C3D /* main.m */; };
 		AE726C551B42C285008C3C3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE726C541B42C285008C3C3D /* AppDelegate.m */; };
 		AE726C5B1B42C285008C3C3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE726C591B42C285008C3C3D /* Main.storyboard */; };
@@ -17,7 +18,9 @@
 		AE8906341B42CE560022D493 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8906331B42CE560022D493 /* TwitterClient.m */; };
 		AE8906381B42FA620022D493 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8906371B42FA620022D493 /* User.m */; };
 		AE89063B1B4301880022D493 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89063A1B4301880022D493 /* TweetsViewController.m */; };
-		B2F8050077D987297FE95242 /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 754364B2F33A3141C0907519 /* libPods-Twitter.a */; };
+		AEB87BD71B438F1400C76D4B /* libPods-Twitter-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB87BD61B438F1400C76D4B /* libPods-Twitter-AFNetworking.a */; };
+		AEB87BD91B438F1900C76D4B /* libPods-Twitter-BDBOAuth1Manager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB87BD81B438F1900C76D4B /* libPods-Twitter-BDBOAuth1Manager.a */; };
+		AEB87BDD1B43946F00C76D4B /* NewTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB87BDC1B43946F00C76D4B /* NewTweetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 		AE8906371B42FA620022D493 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		AE8906391B4301880022D493 /* TweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsViewController.h; sourceTree = "<group>"; };
 		AE89063A1B4301880022D493 /* TweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsViewController.m; sourceTree = "<group>"; };
+		AEB87BD61B438F1400C76D4B /* libPods-Twitter-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Twitter-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-Twitter-AFNetworking.a"; sourceTree = "<group>"; };
+		AEB87BD81B438F1900C76D4B /* libPods-Twitter-BDBOAuth1Manager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Twitter-BDBOAuth1Manager.a"; path = "Pods/../build/Debug-iphoneos/libPods-Twitter-BDBOAuth1Manager.a"; sourceTree = "<group>"; };
+		AEB87BDB1B43946F00C76D4B /* NewTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTweetViewController.h; sourceTree = "<group>"; };
+		AEB87BDC1B43946F00C76D4B /* NewTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTweetViewController.m; sourceTree = "<group>"; };
 		F559C3B0494B961F731203FF /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		FB7F0F898A7E88C50BC09E1B /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2F8050077D987297FE95242 /* libPods-Twitter.a in Frameworks */,
+				AEB87BD91B438F1900C76D4B /* libPods-Twitter-BDBOAuth1Manager.a in Frameworks */,
+				AEB87BD71B438F1400C76D4B /* libPods-Twitter-AFNetworking.a in Frameworks */,
+				609AA31930DAB99A01924D2D /* libPods-Twitter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +86,8 @@
 		020318BDFE54FA3A4151444F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEB87BD81B438F1900C76D4B /* libPods-Twitter-BDBOAuth1Manager.a */,
+				AEB87BD61B438F1400C76D4B /* libPods-Twitter-AFNetworking.a */,
 				754364B2F33A3141C0907519 /* libPods-Twitter.a */,
 			);
 			name = Frameworks;
@@ -160,6 +171,8 @@
 				AE89062F1B42CDD30022D493 /* LoginViewController.m */,
 				AE8906391B4301880022D493 /* TweetsViewController.h */,
 				AE89063A1B4301880022D493 /* TweetsViewController.m */,
+				AEB87BDB1B43946F00C76D4B /* NewTweetViewController.h */,
+				AEB87BDC1B43946F00C76D4B /* NewTweetViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +335,7 @@
 				AE89063B1B4301880022D493 /* TweetsViewController.m in Sources */,
 				AE8906341B42CE560022D493 /* TwitterClient.m in Sources */,
 				AE726C551B42C285008C3C3D /* AppDelegate.m in Sources */,
+				AEB87BDD1B43946F00C76D4B /* NewTweetViewController.m in Sources */,
 				AE726C521B42C285008C3C3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +465,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -462,6 +480,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

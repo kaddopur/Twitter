@@ -22,6 +22,8 @@
     if (self) {
         self.dictionary = dictionary;
         self.name = dictionary[@"name"];
+        self.screenName = dictionary[@"screen_name"];
+        self.profileImageURL = [NSURL URLWithString:dictionary[@"profile_image_url"]];
     }
     
     return self;

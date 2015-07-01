@@ -11,5 +11,4 @@
 
 @interface TweetsViewController : UIViewController
 
-@property (strong, nonatomic) User *user;
 @end

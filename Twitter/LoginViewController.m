@@ -31,9 +31,8 @@
         if (user != nil) {
             NSLog(@"user with clean api call: %@", user.name);
             
-            UINavigationController *navigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+            UINavigationController *navigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
             TweetsViewController *vc = [navigationVC.viewControllers objectAtIndex:0];
-            vc.user = user;
             
             [self presentViewController:navigationVC animated:YES completion:nil];
         } else {
