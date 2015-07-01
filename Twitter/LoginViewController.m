@@ -32,8 +32,6 @@
             NSLog(@"user with clean api call: %@", user.name);
             
             UINavigationController *navigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
-            TweetsViewController *vc = [navigationVC.viewControllers objectAtIndex:0];
-            
             [self presentViewController:navigationVC animated:YES completion:nil];
         } else {
             NSLog(@"user not logged in!");

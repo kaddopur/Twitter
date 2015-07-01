@@ -40,6 +40,11 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
   }];
 }
 
+- (void)signOut {
+    [self.requestSerializer removeAccessToken];
+    [User setCurrentUser:nil];
+}
+
 - (void)openURL:(NSURL *)url {
     [self fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
         [self.requestSerializer saveAccessToken:accessToken];

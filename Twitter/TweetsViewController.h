@@ -11,4 +11,6 @@
 
 @interface TweetsViewController : UIViewController
 
+- (IBAction)onSignout:(id)sender;
+
 @end

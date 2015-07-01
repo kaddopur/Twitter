@@ -17,6 +17,8 @@
 
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 
+- (void)signOut;
+
 - (void)openURL:(NSURL *)url;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "TweetsViewController.h"
+#import "TwitterClient.h"
+#import "LoginViewController.h"
 
 @interface TweetsViewController ()
 
@@ -39,5 +41,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onSignout:(id)sender {
+    [[TwitterClient sharedInstance] signOut];
+    
+    LoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 @end

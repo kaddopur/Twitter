@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -64,7 +64,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="KxF-tL-f1W">
-                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="UhF-W5-aIj"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="UhF-W5-aIj">
+                            <connections>
+                                <action selector="onSignout:" destination="bg0-hQ-g2F" id="qLJ-N8-RTh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="zGA-MZ-IM9">
                             <connections>
                                 <segue destination="Q9n-NX-DWv" kind="modal" id="MMy-HV-pPb"/>
@@ -95,6 +99,12 @@
                                     <constraint firstAttribute="height" constant="48" id="0e5-4N-dUT"/>
                                     <constraint firstAttribute="width" constant="48" id="2gs-0s-v2a"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jason C. Huang" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnp-2e-33Z">
                                 <rect key="frame" x="72" y="86" width="232" height="18"/>
