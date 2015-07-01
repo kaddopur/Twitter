@@ -245,12 +245,13 @@
                         <outlet property="lengthLabel" destination="dvD-fQ-dEQ" id="18W-Cu-bl3"/>
                         <outlet property="nameLabel" destination="wnp-2e-33Z" id="phN-M0-022"/>
                         <outlet property="screenNameLabel" destination="Hxt-bA-KHt" id="soy-fl-pU5"/>
+                        <outlet property="sendButton" destination="d02-EG-XVC" id="YiK-YH-WPB"/>
                         <outlet property="textView" destination="Nc7-4s-zJ0" id="QG3-il-jiK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAz-sb-zRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957" y="104"/>
+            <point key="canvasLocation" x="2389" y="398"/>
         </scene>
         <!--Tweet-->
         <scene sceneID="sQB-nB-GHF">
@@ -321,7 +322,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onReply:" destination="oe7-fG-H4H" eventType="touchUpInside" id="I60-kD-P7b"/>
+                                    <segue destination="Q9n-NX-DWv" kind="modal" id="RBQ-mL-vjM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyt-hj-9tI">
@@ -409,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDW-9S-lzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1527" y="775"/>
+            <point key="canvasLocation" x="1519" y="797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YqR-6N-iAj">
@@ -447,7 +448,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dx-Ek-gdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1527" y="104"/>
+            <point key="canvasLocation" x="1955" y="398"/>
         </scene>
     </scenes>
     <resources>
@@ -460,4 +461,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="RBQ-mL-vjM"/>
+    </inferredMetricsTieBreakers>
 </document>

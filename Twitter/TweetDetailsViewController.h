@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextViewHeight;
 @property (weak, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesLabel;
-- (IBAction)onReply:(id)sender;
 - (IBAction)onRetweet:(id)sender;
 - (IBAction)onFavorite:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;

@@ -13,6 +13,7 @@
 #import "Tweet.h"
 #import "UIImageVIew+AFNetworking.h"
 #import "TweetDetailsViewController.h"
+#import "NewTweetViewController.h"
 
 @interface TweetsViewController ()
 

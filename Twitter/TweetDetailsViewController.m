@@ -9,6 +9,7 @@
 #import "TweetDetailsViewController.h"
 #import "UIImageVIew+AFNetworking.h"
 #import "TwitterClient.h"
+#import "NewTweetViewController.h"
 
 @interface TweetDetailsViewController ()
 
@@ -58,19 +59,6 @@
     [_textView updateConstraints];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)onReply:(id)sender {
-}
-
 - (IBAction)onRetweet:(id)sender {
     _tweet.retweeted = !_tweet.retweeted;
     if (_tweet.retweeted) {
@@ -96,4 +84,18 @@
     [params setObject:_tweet.IDStr forKey:@"id"];
     [[TwitterClient sharedInstance] favoriteWithParams:params completion:^(Tweet *tweet, NSError *error) {}];
 }
+
+
+ #pragma mark - Navigation
+
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     UINavigationController *navigateVC = segue.destinationViewController;
+     NewTweetViewController *vc = [navigateVC.viewControllers objectAtIndex:0];
+     NSDictionary *replyInfo = @{
+                                 @"replyTo": _tweet.IDStr,
+                                 @"author": _tweet.user.screenName
+                                 };
+     vc.replyInfo = replyInfo;
+ }
+
 @end

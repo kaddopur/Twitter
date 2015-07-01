@@ -23,6 +23,7 @@
     User *user = [User currentUser];
     
     [self defaultViewWithUser:user];
+    [self handleReplyInfo];
     
     self.textView.delegate = self;
     [self.textView becomeFirstResponder];
@@ -41,6 +42,13 @@
     self.textView.text = @"";
     self.lengthLabel.text = @"140";
     [self.imageView setImageWithURL:user.profileImageURL];
+}
+
+- (void)handleReplyInfo {
+    if (_replyInfo) {
+        _textView.text = [NSString stringWithFormat:@"@%@ ", _replyInfo[@"author"]];
+        _sendButton.title = @"Reply";
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -72,6 +80,10 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:self.textView.text forKey:@"status"];
+    
+    if (_replyInfo) {
+        [params setObject:_replyInfo[@"replyTo"] forKey:@"in_reply_to_status_id"];
+    }
     
     [[TwitterClient sharedInstance] updateStatusWithParams:params completion:^(Tweet *tweet, NSError *error) {
         [self dismissViewControllerAnimated:YES completion:nil];
