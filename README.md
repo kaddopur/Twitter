@@ -32,7 +32,7 @@ Time spent: `10 hrs`
 
 ### Walkthrough
 
-![Video Walkthrough](http://i.imgur.com/R0lYf67.gif)
+![Video Walkthrough](http://i.imgur.com/8xEpN4s.gif)
 
 
 
