@@ -10,6 +10,7 @@
 #import "TweetsViewController.h"
 #import "MenuViewController.h"
 #import "ProfileViewController.h"
+#import "MentionsViewController.h"
 
 @interface ContainerViewController ()
 
@@ -17,6 +18,9 @@
 @property (strong, nonatomic) TweetsViewController *tweetsVC;
 @property (strong, nonatomic) UINavigationController *profileNavigationVC;
 @property (strong, nonatomic) ProfileViewController *profileVC;
+@property (strong, nonatomic) UINavigationController *mentionsNavigationVC;
+@property (strong, nonatomic) MentionsViewController *mentionsVC;
+
 @property (strong, nonatomic) MenuViewController *menuVC;
 @property (assign, nonatomic) BOOL isMenuOpen;
 
@@ -40,7 +44,7 @@
     self.profileVC = self.profileNavigationVC.childViewControllers[0];
     self.profileVC.delegate = self;
     
-//    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.view addSubview:self.profileNavigationVC.view];
     
     [self addChildViewController:self.profileNavigationVC];
@@ -55,12 +59,26 @@
     self.tweetsVC = self.tweetsNavigationVC.childViewControllers[0];
     self.tweetsVC.delegate = self;
     
-    
-//    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.view addSubview:self.tweetsNavigationVC.view];
     
     [self addChildViewController:self.tweetsNavigationVC];
     [self.tweetsNavigationVC didMoveToParentViewController:self];
+}
+
+- (void)setupMentions {
+    self.isMenuOpen = NO;
+    self.mentionsNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MentionsNavigationController"];
+    self.currentVC = self.mentionsNavigationVC;
+    
+    self.mentionsVC = self.mentionsNavigationVC.childViewControllers[0];
+    self.mentionsVC.delegate = self;
+    
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.view addSubview:self.mentionsNavigationVC.view];
+    
+    [self addChildViewController:self.mentionsNavigationVC];
+    [self.mentionsNavigationVC didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,7 +86,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickMenu:(NSDictionary *)params {
+- (void)handleMenuClick {
     BOOL shouldMenuOpen = !self.isMenuOpen;
     
     if (shouldMenuOpen) {
@@ -78,17 +96,16 @@
     }
 }
 
+- (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickMenu:(NSDictionary *)params {
+    [self handleMenuClick];
+}
+
 - (void)profileViewController:(ProfileViewController *)profileViewController didClickMenu:(NSDictionary *)params {
-    NSLog(@"profileViewController");
-    BOOL shouldMenuOpen = !self.isMenuOpen;
-    
-    if (shouldMenuOpen) {
-        NSLog(@"openMenu");
-        [self openMenu];
-    } else {
-        NSLog(@"closeMenu");
-        [self closeMenu];
-    }
+    [self handleMenuClick];
+}
+
+- (void)mentionsViewController:(MentionsViewController *)mentionsViewController didClickMenu:(NSDictionary *)params {
+    [self handleMenuClick];
 }
 
 - (void)addMenuPanel {
@@ -96,7 +113,7 @@
     [self.view insertSubview:self.menuVC.view atIndex:0];
     [self addChildViewController:self.menuVC];
     [self.menuVC didMoveToParentViewController:self];
-    self.tweetsNavigationVC.view.layer.shadowOpacity = 0.8;
+    self.currentVC.view.layer.shadowOpacity = 0.5;
 }
 
 - (void)openMenu {

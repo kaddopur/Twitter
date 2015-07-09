@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TweetsViewController.h"
 #import "ProfileViewController.h"
+#import "MentionsViewController.h"
 
-@interface ContainerViewController : UIViewController <TweetsViewControllerDelegate, ProfileViewControllerDelegate>
+@interface ContainerViewController : UIViewController <TweetsViewControllerDelegate, ProfileViewControllerDelegate, MentionsViewControllerDelegate>
 
 - (void)setupProfile;
 - (void)setupHomeTimeline;
+- (void)setupMentions;
 
 @end

@@ -41,6 +41,12 @@
     [containerVC setupHomeTimeline];
 }
 
+- (IBAction)goToMentions:(id)sender {
+    ContainerViewController *containerVC = (ContainerViewController *)self.parentViewController;
+    
+    [containerVC setupMentions];
+}
+
 /*
 #pragma mark - Navigation
 

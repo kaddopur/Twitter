@@ -498,6 +498,9 @@
                                 <state key="normal" title="Mentions">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToMentions:" destination="8V4-7r-ngD" eventType="touchUpInside" id="U9c-tH-h5g"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -564,6 +567,32 @@
             </objects>
             <point key="canvasLocation" x="1197" y="1494"/>
         </scene>
+        <!--Mentions-->
+        <scene sceneID="uoF-bv-UDM">
+            <objects>
+                <viewController storyboardIdentifier="MentionsViewController" id="P3R-oi-vJC" customClass="MentionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sZc-cu-3YK"/>
+                        <viewControllerLayoutGuide type="bottom" id="7oY-eX-MES"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4sS-yg-XAR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mentions" id="sKy-un-XZ4">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="Csa-8u-3Iy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onMenuClick:" destination="P3R-oi-vJC" id="4rl-aL-tEJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8NQ-9b-bhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197" y="2270"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YqR-6N-iAj">
             <objects>
@@ -621,6 +650,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nih-Sn-RMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="665" y="1494"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sWh-a4-XdV">
+            <objects>
+                <navigationController storyboardIdentifier="MentionsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="H9G-kQ-TPM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="M8O-D4-5Xo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P3R-oi-vJC" kind="relationship" relationship="rootViewController" id="mpy-Ns-r2r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXU-dp-Mle" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="2270"/>
         </scene>
     </scenes>
     <resources>
