@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "User.h"
 #import "UIImageVIew+AFNetworking.h"
+#import "ContainerViewController.h"
 
 @interface MenuViewController ()
 
@@ -26,6 +27,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)goToProfile:(id)sender {
+    ContainerViewController *containerVC = (ContainerViewController *)self.parentViewController;
+    
+    [containerVC setupProfile];
+}
+
+- (IBAction)goToHomeTimeline:(id)sender {
+    ContainerViewController *containerVC = (ContainerViewController *)self.parentViewController;
+    
+    [containerVC setupHomeTimeline];
 }
 
 /*

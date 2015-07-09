@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TweetsViewController.h"
+#import "ProfileViewController.h"
 
-@interface ContainerViewController : UIViewController <TweetsViewControllerDelegate>
+@interface ContainerViewController : UIViewController <TweetsViewControllerDelegate, ProfileViewControllerDelegate>
+
+- (void)setupProfile;
+- (void)setupHomeTimeline;
 
 @end

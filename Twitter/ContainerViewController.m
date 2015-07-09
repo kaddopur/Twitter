@@ -9,13 +9,18 @@
 #import "ContainerViewController.h"
 #import "TweetsViewController.h"
 #import "MenuViewController.h"
+#import "ProfileViewController.h"
 
 @interface ContainerViewController ()
 
 @property (strong, nonatomic) UINavigationController *tweetsNavigationVC;
 @property (strong, nonatomic) TweetsViewController *tweetsVC;
+@property (strong, nonatomic) UINavigationController *profileNavigationVC;
+@property (strong, nonatomic) ProfileViewController *profileVC;
 @property (strong, nonatomic) MenuViewController *menuVC;
 @property (assign, nonatomic) BOOL isMenuOpen;
+
+@property (weak, nonatomic) UIViewController *currentVC;
 
 @end
 
@@ -24,15 +29,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupHomeTimeline];
+}
+
+- (void)setupProfile {
     self.isMenuOpen = NO;
+    self.profileNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
+    self.currentVC = self.profileNavigationVC;
     
+    self.profileVC = self.profileNavigationVC.childViewControllers[0];
+    self.profileVC.delegate = self;
+    
+//    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.view addSubview:self.profileNavigationVC.view];
+    
+    [self addChildViewController:self.profileNavigationVC];
+    [self.profileNavigationVC didMoveToParentViewController:self];
+}
+
+- (void)setupHomeTimeline {
+    self.isMenuOpen = NO;
     self.tweetsNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+    self.currentVC = self.tweetsNavigationVC;
+    
     self.tweetsVC = self.tweetsNavigationVC.childViewControllers[0];
     self.tweetsVC.delegate = self;
     
-    [self.view addSubview:self.tweetsNavigationVC.view];
-    [self addChildViewController:self.tweetsNavigationVC];
     
+//    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.view addSubview:self.tweetsNavigationVC.view];
+    
+    [self addChildViewController:self.tweetsNavigationVC];
     [self.tweetsNavigationVC didMoveToParentViewController:self];
 }
 
@@ -51,6 +78,19 @@
     }
 }
 
+- (void)profileViewController:(ProfileViewController *)profileViewController didClickMenu:(NSDictionary *)params {
+    NSLog(@"profileViewController");
+    BOOL shouldMenuOpen = !self.isMenuOpen;
+    
+    if (shouldMenuOpen) {
+        NSLog(@"openMenu");
+        [self openMenu];
+    } else {
+        NSLog(@"closeMenu");
+        [self closeMenu];
+    }
+}
+
 - (void)addMenuPanel {
     self.menuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     [self.view insertSubview:self.menuVC.view atIndex:0];
@@ -65,10 +105,10 @@
     }
     
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.85 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGRect frame = self.tweetsNavigationVC.view.frame;
-        CGFloat targetX = CGRectGetWidth(self.tweetsNavigationVC.view.frame) - 48;
+        CGRect frame = self.currentVC.view.frame;
+        CGFloat targetX = CGRectGetWidth(self.currentVC.view.frame) - 48;
         frame.origin.x = targetX;
-        self.tweetsNavigationVC.view.frame = frame;
+        self.currentVC.view.frame = frame;
     } completion:^(BOOL finished) {
         self.isMenuOpen = YES;
     }];
@@ -76,10 +116,10 @@
 
 - (void)closeMenu {
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.85 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGRect frame = self.tweetsNavigationVC.view.frame;
+        CGRect frame = self.currentVC.view.frame;
         frame.origin.x = 0;
-        self.tweetsNavigationVC.view.frame = frame;
-        self.tweetsNavigationVC.view.layer.shadowOpacity = 0.0;
+        self.currentVC.view.frame = frame;
+        self.currentVC.view.layer.shadowOpacity = 0.0;
     } completion:^(BOOL finished) {
         [self.menuVC.view removeFromSuperview];
         self.menuVC = nil;
@@ -97,14 +137,14 @@
             [self addMenuPanel];
             break;
         case UIGestureRecognizerStateChanged:
-            center = self.tweetsNavigationVC.view.center;
+            center = self.currentVC.view.center;
             center.x = center.x + [recognizer translationInView:self.view].x;
-            self.tweetsNavigationVC.view.center = center;
+            self.currentVC.view.center = center;
             
             [recognizer setTranslation:CGPointZero inView:self.view];
             break;
         case UIGestureRecognizerStateEnded:
-            movedGreaterThanHalfWay = fabs(self.tweetsNavigationVC.view.center.x) > recognizer.view.center.x * 1.5;
+            movedGreaterThanHalfWay = fabs(self.currentVC.view.center.x) > recognizer.view.center.x * 1.5;
             
             if (!draggingFromLeftToRight && !self.isMenuOpen) {
                 [self closeMenu];

@@ -474,6 +474,9 @@
                                 <state key="normal" title="Profile">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToProfile:" destination="8V4-7r-ngD" eventType="touchUpInside" id="uhx-lx-h7Z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3e-sM-tix">
                                 <rect key="frame" x="16" y="194" width="288" height="30"/>
@@ -483,6 +486,9 @@
                                 <state key="normal" title="Home Timeline">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToHomeTimeline:" destination="8V4-7r-ngD" eventType="touchUpInside" id="pke-Yo-3Sr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCM-8m-sCA">
                                 <rect key="frame" x="16" y="232" width="288" height="30"/>
@@ -521,10 +527,10 @@
             </objects>
             <point key="canvasLocation" x="279" y="1113"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="7jZ-sQ-1ic">
             <objects>
-                <viewController id="xGu-D5-zlm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="xGu-D5-zlm" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ueu-Z8-rdr"/>
                         <viewControllerLayoutGuide type="bottom" id="EPF-yT-CuU"/>
@@ -546,11 +552,17 @@
                             <constraint firstAttribute="centerY" secondItem="15l-ci-HBv" secondAttribute="centerY" id="j3E-j9-mHI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gWl-Td-f64"/>
+                    <navigationItem key="navigationItem" title="Profile" id="gWl-Td-f64">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="ktY-ri-KjZ">
+                            <connections>
+                                <action selector="onMenuClick:" destination="xGu-D5-zlm" id="8pE-8w-6ir"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huS-AI-UT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="1113"/>
+            <point key="canvasLocation" x="1197" y="1494"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YqR-6N-iAj">
@@ -589,6 +601,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dx-Ek-gdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1955" y="398"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8bk-V7-t0f">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Lth-M8-uj8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="lB0-WM-yFJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xGu-D5-zlm" kind="relationship" relationship="rootViewController" id="vhD-Bu-Jjy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nih-Sn-RMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="1494"/>
         </scene>
     </scenes>
     <resources>
