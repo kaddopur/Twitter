@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "TweetsViewController.h"
+#import "ContainerViewController.h"
 
 @interface LoginViewController ()
 
@@ -31,8 +32,8 @@
         if (user != nil) {
             NSLog(@"user with clean api call: %@", user.name);
             
-            UINavigationController *navigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
-            [self presentViewController:navigationVC animated:YES completion:nil];
+            ContainerViewController *containerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ContainerViewController"];
+            [self presentViewController:containerVC animated:YES completion:nil];
         } else {
             NSLog(@"user not logged in!");
         }

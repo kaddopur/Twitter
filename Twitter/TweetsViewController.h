@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
+@class TweetsViewController;
+
+@protocol TweetsViewControllerDelegate <NSObject>
+
+- (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickMenu:(NSDictionary *)params;
+
+@end
+
+
 @interface TweetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) id<TweetsViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)onSignout:(id)sender;

@@ -10,6 +10,7 @@
 #import "TwitterClient.h"
 #import "User.h"
 #import "TweetsViewController.h"
+#import "ContainerViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,9 +26,8 @@
         NSLog(@"welcome %@", user.name);
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UINavigationController *navigationVC = [storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
-        
-        self.window.rootViewController = navigationVC;
+        ContainerViewController *containerVC = [storyboard instantiateViewControllerWithIdentifier:@"ContainerViewController"];        
+        self.window.rootViewController = containerVC;
     } else {
         NSLog(@"not logged in");
     }

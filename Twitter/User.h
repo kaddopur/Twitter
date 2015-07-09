@@ -13,6 +13,9 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *screenName;
 @property (strong, nonatomic) NSURL *profileImageURL;
+@property (assign, nonatomic) NSUInteger statusesCount;
+@property (assign, nonatomic) NSUInteger friendsCount;
+@property (assign, nonatomic) NSUInteger followersCount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

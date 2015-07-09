@@ -109,4 +109,13 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void)showUserWithParams:(NSDictionary *)params completion:(void (^)(User *user, NSError *error))completion {
+    [self GET:@"1.1/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion([[User alloc] initWithDictionary:responseObject], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failed to show user");
+        completion(nil, error);
+    }];
+}
+
 @end

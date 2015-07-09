@@ -14,6 +14,8 @@
 #import "UIImageVIew+AFNetworking.h"
 #import "TweetDetailsViewController.h"
 #import "NewTweetViewController.h"
+#import "ProfileViewController.h"
+
 
 @interface TweetsViewController ()
 
@@ -67,10 +69,29 @@
     [cell.profileImage setImageWithURL:tweet.user.profileImageURL];
     cell.createdAtLabel.text = [Tweet timeAgoStringWith:tweet];
     
+    // setup profile image click
+    cell.profileImage.userInteractionEnabled = YES;
+    cell.profileImage.tag = indexPath.row;
+
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileClicked:)];
+    tapped.numberOfTapsRequired = 1;
+    [cell.profileImage addGestureRecognizer:tapped];
+    
     return cell;
 }
 
+- (void)profileClicked:(id)sender {
+    UITapGestureRecognizer *tapped = (UITapGestureRecognizer *)sender;
+    Tweet *tweet = self.tweets[tapped.view.tag];
+    
+    [self performSegueWithIdentifier:@"segueToProfile" sender:tweet.user];
+    
+    NSLog(@"asdf %@", tweet.user.screenName);
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"segueToTweetDetails" sender:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -82,16 +103,20 @@
     }];
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UIViewController *vc = segue.destinationViewController;
-    NSString *className = NSStringFromClass(vc.class);
-    
-    if ([className isEqualToString:@"TweetDetailsViewController"]) {
+    if ([segue.identifier isEqualToString:@"segueToTweetDetails"]) {
+        TweetDetailsViewController *vc = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ((TweetDetailsViewController *)vc).tweet = self.tweets[indexPath.row];
+        vc.tweet = self.tweets[indexPath.row];
+    }
+    
+    if ([segue.identifier isEqualToString:@"segueToProfile"]) {
+        ProfileViewController *vc = segue.destinationViewController;
+
+        vc.navigationItem.leftBarButtonItem = vc.navigationItem.backBarButtonItem;
+        vc.currentUser = sender;
     }
 }
 
@@ -100,6 +125,10 @@
     
     LoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)onMenuClick:(id)sender {
+    [self.delegate tweetsViewController:self didClickMenu:nil];
 }
 
 @end
