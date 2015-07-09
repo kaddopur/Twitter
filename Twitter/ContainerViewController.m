@@ -36,6 +36,11 @@
     [self setupHomeTimeline];
 }
 
+- (void)cleanUpSubViews {
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.menuVC = nil;
+}
+
 - (void)setupProfile {
     self.isMenuOpen = NO;
     self.profileNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
@@ -44,7 +49,7 @@
     self.profileVC = self.profileNavigationVC.childViewControllers[0];
     self.profileVC.delegate = self;
     
-    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self cleanUpSubViews];
     [self.view addSubview:self.profileNavigationVC.view];
     
     [self addChildViewController:self.profileNavigationVC];
@@ -59,7 +64,7 @@
     self.tweetsVC = self.tweetsNavigationVC.childViewControllers[0];
     self.tweetsVC.delegate = self;
     
-    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self cleanUpSubViews];
     [self.view addSubview:self.tweetsNavigationVC.view];
     
     [self addChildViewController:self.tweetsNavigationVC];
@@ -74,7 +79,7 @@
     self.mentionsVC = self.mentionsNavigationVC.childViewControllers[0];
     self.mentionsVC.delegate = self;
     
-    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self cleanUpSubViews];
     [self.view addSubview:self.mentionsNavigationVC.view];
     
     [self addChildViewController:self.mentionsNavigationVC];
