@@ -18,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    TweetsViewController *tweetsNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+    UINavigationController *tweetsNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+    TweetsViewController *tweetsVC = tweetsNavigationVC.childViewControllers[0];
+    tweetsVC.delegate = self;
+    
     [self.view addSubview:tweetsNavigationVC.view];
     [self addChildViewController:tweetsNavigationVC];
     
@@ -29,6 +32,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickMenu:(NSDictionary *)params {
+    NSLog(@"didClickMenu %@", params);
 }
 
 /*

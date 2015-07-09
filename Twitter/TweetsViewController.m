@@ -15,6 +15,7 @@
 #import "TweetDetailsViewController.h"
 #import "NewTweetViewController.h"
 
+
 @interface TweetsViewController ()
 
 @property (strong, nonatomic) NSArray *tweets;
@@ -100,6 +101,11 @@
     
     LoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)onMenuClick:(id)sender {
+    [self.delegate tweetsViewController:self didClickMenu:nil];
+    NSLog(@"hamburger clicked");
 }
 
 @end

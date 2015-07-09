@@ -137,9 +137,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="KxF-tL-f1W">
-                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="UhF-W5-aIj">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="UhF-W5-aIj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="onSignout:" destination="bg0-hQ-g2F" id="qLJ-N8-RTh"/>
+                                <action selector="onMenuClick:" destination="bg0-hQ-g2F" id="Ro4-6J-PZe"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="zGA-MZ-IM9">
@@ -483,6 +484,7 @@
     </scenes>
     <resources>
         <image name="favorite-default" width="16" height="16"/>
+        <image name="hamburger" width="24" height="24"/>
         <image name="reply-default" width="16" height="16"/>
         <image name="retweet-default" width="18" height="16"/>
     </resources>
@@ -492,6 +494,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RBQ-mL-vjM"/>
+        <segue reference="JQc-Hy-Yhy"/>
     </inferredMetricsTieBreakers>
 </document>
