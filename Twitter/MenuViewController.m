@@ -7,6 +7,8 @@
 //
 
 #import "MenuViewController.h"
+#import "User.h"
+#import "UIImageVIew+AFNetworking.h"
 
 @interface MenuViewController ()
 
@@ -16,7 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    User *user = [User currentUser];
+    
+    [self.profileImage setImageWithURL:user.profileImageURL];
 }
 
 - (void)didReceiveMemoryWarning {
