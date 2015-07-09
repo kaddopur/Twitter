@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @class ProfileViewController;
 
@@ -20,5 +21,7 @@
 @interface ProfileViewController : UIViewController
 
 @property (weak, nonatomic) id<ProfileViewControllerDelegate> delegate;
+@property (strong, nonatomic) User *currentUser;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "UIImageVIew+AFNetworking.h"
 
 @interface ProfileViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (!self.currentUser) {
+        self.currentUser = [User currentUser];
+    }
+    
+    [self.profileImage setImageWithURL:self.currentUser.profileImageURL];
 }
 
 - (void)didReceiveMemoryWarning {

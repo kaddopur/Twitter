@@ -542,17 +542,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15l-ci-HBv">
-                                <rect key="frame" x="136" y="274" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NBF-6c-ID1">
+                                <rect key="frame" x="16" y="72" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="QVa-VX-32s"/>
+                                    <constraint firstAttribute="width" constant="72" id="fqk-ap-Jdo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="15l-ci-HBv" secondAttribute="centerX" id="V1s-m4-oRP"/>
-                            <constraint firstAttribute="centerY" secondItem="15l-ci-HBv" secondAttribute="centerY" id="j3E-j9-mHI"/>
+                            <constraint firstItem="NBF-6c-ID1" firstAttribute="top" secondItem="Ueu-Z8-rdr" secondAttribute="bottom" constant="8" id="Gya-Df-vCx"/>
+                            <constraint firstItem="NBF-6c-ID1" firstAttribute="leading" secondItem="jaX-Pn-RGu" secondAttribute="leadingMargin" id="oCm-RK-k3Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="gWl-Td-f64">
@@ -562,6 +563,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profileImage" destination="NBF-6c-ID1" id="1Vz-Vh-YjI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huS-AI-UT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
