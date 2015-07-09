@@ -51,21 +51,26 @@
     }
 }
 
-- (void)openMenu {
+- (void)addMenuPanel {
     self.menuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-    
     [self.view insertSubview:self.menuVC.view atIndex:0];
     [self addChildViewController:self.menuVC];
     [self.menuVC didMoveToParentViewController:self];
+    self.tweetsNavigationVC.view.layer.shadowOpacity = 0.8;
+}
+
+- (void)openMenu {
+    if (!self.menuVC) {
+        [self addMenuPanel];
+    }
     
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.85 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect frame = self.tweetsNavigationVC.view.frame;
         CGFloat targetX = CGRectGetWidth(self.tweetsNavigationVC.view.frame) - 48;
         frame.origin.x = targetX;
         self.tweetsNavigationVC.view.frame = frame;
-        self.tweetsNavigationVC.view.layer.shadowOpacity = 0.8;
     } completion:^(BOOL finished) {
-        self.isMenuOpen = !self.isMenuOpen;
+        self.isMenuOpen = YES;
     }];
 }
 
@@ -76,10 +81,55 @@
         self.tweetsNavigationVC.view.frame = frame;
         self.tweetsNavigationVC.view.layer.shadowOpacity = 0.0;
     } completion:^(BOOL finished) {
-        self.isMenuOpen = !self.isMenuOpen;
         [self.menuVC.view removeFromSuperview];
         self.menuVC = nil;
+        self.isMenuOpen = NO;
     }];
+}
+
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
+    BOOL draggingFromLeftToRight = ([recognizer velocityInView:(self.view)].x > 0);
+    BOOL movedGreaterThanHalfWay;
+    CGPoint center;
+
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            [self addMenuPanel];
+            break;
+        case UIGestureRecognizerStateChanged:
+            center = self.tweetsNavigationVC.view.center;
+            center.x = center.x + [recognizer translationInView:self.view].x;
+            self.tweetsNavigationVC.view.center = center;
+            
+            [recognizer setTranslation:CGPointZero inView:self.view];
+            break;
+        case UIGestureRecognizerStateEnded:
+            movedGreaterThanHalfWay = fabs(self.tweetsNavigationVC.view.center.x) > recognizer.view.center.x * 1.5;
+            
+            if (!draggingFromLeftToRight && !self.isMenuOpen) {
+                [self closeMenu];
+                break;
+            }
+
+            if (draggingFromLeftToRight) {
+                if (movedGreaterThanHalfWay && !self.isMenuOpen) {
+                    [self openMenu];
+                } else {
+                    [self closeMenu];
+                }
+            } else {
+                if (movedGreaterThanHalfWay) {
+                    [self closeMenu];
+                } else {
+                    [self openMenu];
+                }
+            }
+            break;
+        default:
+            break;
+    }
+
+    
 }
 
 /*
