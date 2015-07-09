@@ -30,4 +30,6 @@
 
 - (void)favoriteWithParams:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion;
 
+- (void)showUserWithParams:(NSDictionary *)params completion:(void (^)(User *user, NSError *error))completion;
+
 @end

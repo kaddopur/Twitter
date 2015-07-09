@@ -24,6 +24,9 @@
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
         self.profileImageURL = [NSURL URLWithString:dictionary[@"profile_image_url"]];
+        self.statusesCount = [dictionary[@"statuses_count"] integerValue];
+        self.friendsCount = [dictionary[@"friends_count"] integerValue];
+        self.followersCount = [dictionary[@"followers_count"] integerValue];
     }
     
     return self;

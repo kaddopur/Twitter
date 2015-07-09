@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "UIImageVIew+AFNetworking.h"
+#import "TwitterClient.h"
 
 @interface ProfileViewController ()
 
@@ -23,8 +24,15 @@
         self.currentUser = [User currentUser];
     }
     
-    [self.profileImage setImageWithURL:self.currentUser.profileImageURL];
-    self.tweetsLabel.text = self.currentUser.
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:self.currentUser.screenName forKey:@"screen_name"];
+    
+    [[TwitterClient sharedInstance] showUserWithParams:params completion:^(User *user, NSError *error) {
+        [self.profileImage setImageWithURL:user.profileImageURL];
+        self.tweetsLabel.text = [NSString stringWithFormat:@"%ld", user.statusesCount];
+        self.followingLabel.text = [NSString stringWithFormat:@"%ld", user.friendsCount];
+        self.followersLabel.text = [NSString stringWithFormat:@"%ld", user.followersCount];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
