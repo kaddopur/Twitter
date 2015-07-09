@@ -8,8 +8,14 @@
 
 #import "ContainerViewController.h"
 #import "TweetsViewController.h"
+#import "MenuViewController.h"
 
 @interface ContainerViewController ()
+
+@property (strong, nonatomic) UINavigationController *tweetsNavigationVC;
+@property (strong, nonatomic) TweetsViewController *tweetsVC;
+@property (strong, nonatomic) MenuViewController *menuVC;
+@property (assign, nonatomic) BOOL isMenuOpen;
 
 @end
 
@@ -18,15 +24,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINavigationController *tweetsNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
-    TweetsViewController *tweetsVC = tweetsNavigationVC.childViewControllers[0];
-    tweetsVC.delegate = self;
+    self.isMenuOpen = NO;
     
-    [self.view addSubview:tweetsNavigationVC.view];
-    [self addChildViewController:tweetsNavigationVC];
+    self.tweetsNavigationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+    self.tweetsVC = self.tweetsNavigationVC.childViewControllers[0];
+    self.tweetsVC.delegate = self;
     
-    [tweetsNavigationVC didMoveToParentViewController:self];
+    [self.view addSubview:self.tweetsNavigationVC.view];
+    [self addChildViewController:self.tweetsNavigationVC];
     
+    [self.tweetsNavigationVC didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +42,44 @@
 }
 
 - (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickMenu:(NSDictionary *)params {
-    NSLog(@"didClickMenu %@", params);
+    BOOL shouldMenuOpen = !self.isMenuOpen;
+    
+    if (shouldMenuOpen) {
+        [self openMenu];
+    } else {
+        [self closeMenu];
+    }
+}
+
+- (void)openMenu {
+    self.menuVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    
+    [self.view insertSubview:self.menuVC.view atIndex:0];
+    [self addChildViewController:self.menuVC];
+    [self.menuVC didMoveToParentViewController:self];
+    
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.85 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        CGRect frame = self.tweetsNavigationVC.view.frame;
+        CGFloat targetX = CGRectGetWidth(self.tweetsNavigationVC.view.frame) - 48;
+        frame.origin.x = targetX;
+        self.tweetsNavigationVC.view.frame = frame;
+        self.tweetsNavigationVC.view.layer.shadowOpacity = 0.8;
+    } completion:^(BOOL finished) {
+        self.isMenuOpen = !self.isMenuOpen;
+    }];
+}
+
+- (void)closeMenu {
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.85 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        CGRect frame = self.tweetsNavigationVC.view.frame;
+        frame.origin.x = 0;
+        self.tweetsNavigationVC.view.frame = frame;
+        self.tweetsNavigationVC.view.layer.shadowOpacity = 0.0;
+    } completion:^(BOOL finished) {
+        self.isMenuOpen = !self.isMenuOpen;
+        [self.menuVC.view removeFromSuperview];
+        self.menuVC = nil;
+    }];
 }
 
 /*

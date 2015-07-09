@@ -105,7 +105,6 @@
 
 - (IBAction)onMenuClick:(id)sender {
     [self.delegate tweetsViewController:self didClickMenu:nil];
-    NSLog(@"hamburger clicked");
 }
 
 @end
