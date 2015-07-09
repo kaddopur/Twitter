@@ -151,7 +151,7 @@
                     <connections>
                         <outlet property="tableView" destination="Clm-XI-4K3" id="8in-Ae-W7m"/>
                         <segue destination="oe7-fG-H4H" kind="push" identifier="segueToTweetDetails" id="GJn-eL-LDF"/>
-                        <segue destination="Lth-M8-uj8" kind="push" id="FPs-sL-vEZ"/>
+                        <segue destination="xGu-D5-zlm" kind="push" identifier="segueToProfile" id="d1v-IO-Vhe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mha-L1-G35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -741,5 +741,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="JQc-Hy-Yhy"/>
+        <segue reference="d1v-IO-Vhe"/>
     </inferredMetricsTieBreakers>
 </document>

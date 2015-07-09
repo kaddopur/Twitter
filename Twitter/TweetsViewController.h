@@ -14,7 +14,6 @@
 @protocol TweetsViewControllerDelegate <NSObject>
 
 - (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickMenu:(NSDictionary *)params;
-- (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickProfile:(NSDictionary *)params;
 
 @end
 

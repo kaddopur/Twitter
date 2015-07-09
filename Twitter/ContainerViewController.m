@@ -105,10 +105,6 @@
     [self handleMenuClick];
 }
 
-- (void)tweetsViewController:(TweetsViewController *)tweetsViewController didClickProfile:(NSDictionary *)params {
-    [self setupProfile];
-}
-
 - (void)profileViewController:(ProfileViewController *)profileViewController didClickMenu:(NSDictionary *)params {
     [self handleMenuClick];
 }

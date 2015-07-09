@@ -14,6 +14,7 @@
 #import "UIImageVIew+AFNetworking.h"
 #import "TweetDetailsViewController.h"
 #import "NewTweetViewController.h"
+#import "ProfileViewController.h"
 
 
 @interface TweetsViewController ()
@@ -68,7 +69,24 @@
     [cell.profileImage setImageWithURL:tweet.user.profileImageURL];
     cell.createdAtLabel.text = [Tweet timeAgoStringWith:tweet];
     
+    // setup profile image click
+    cell.profileImage.userInteractionEnabled = YES;
+    cell.profileImage.tag = indexPath.row;
+
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileClicked:)];
+    tapped.numberOfTapsRequired = 1;
+    [cell.profileImage addGestureRecognizer:tapped];
+    
     return cell;
+}
+
+- (void)profileClicked:(id)sender {
+    UITapGestureRecognizer *tapped = (UITapGestureRecognizer *)sender;
+    Tweet *tweet = self.tweets[tapped.view.tag];
+    
+    [self performSegueWithIdentifier:@"segueToProfile" sender:tweet.user];
+    
+    NSLog(@"asdf %@", tweet.user.screenName);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,7 +112,12 @@
         vc.tweet = self.tweets[indexPath.row];
     }
     
-    
+    if ([segue.identifier isEqualToString:@"segueToProfile"]) {
+        ProfileViewController *vc = segue.destinationViewController;
+
+        vc.navigationItem.leftBarButtonItem = vc.navigationItem.backBarButtonItem;
+        vc.currentUser = sender;
+    }
 }
 
 - (IBAction)onSignout:(id)sender {
