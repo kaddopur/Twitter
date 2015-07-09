@@ -72,6 +72,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"segueToTweetDetails" sender:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -83,17 +85,16 @@
     }];
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UIViewController *vc = segue.destinationViewController;
-    NSString *className = NSStringFromClass(vc.class);
-    
-    if ([className isEqualToString:@"TweetDetailsViewController"]) {
+    if ([segue.identifier isEqualToString:@"segueToTweetDetails"]) {
+        TweetDetailsViewController *vc = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ((TweetDetailsViewController *)vc).tweet = self.tweets[indexPath.row];
+        vc.tweet = self.tweets[indexPath.row];
     }
+    
+    
 }
 
 - (IBAction)onSignout:(id)sender {

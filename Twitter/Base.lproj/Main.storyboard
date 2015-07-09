@@ -122,7 +122,6 @@
                                             <outlet property="profileImage" destination="ouV-fE-k4L" id="31Y-x5-5fC"/>
                                             <outlet property="screenNameLabel" destination="57R-vY-8P7" id="y7R-Sf-vGS"/>
                                             <outlet property="tweetTextLabel" destination="Nia-Qk-d34" id="aG3-d6-Cf3"/>
-                                            <segue destination="oe7-fG-H4H" kind="push" id="m7i-E2-grA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -151,6 +150,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Clm-XI-4K3" id="8in-Ae-W7m"/>
+                        <segue destination="oe7-fG-H4H" kind="push" identifier="segueToTweetDetails" id="GJn-eL-LDF"/>
+                        <segue destination="Lth-M8-uj8" kind="push" id="FPs-sL-vEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mha-L1-G35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -691,6 +692,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Lth-M8-uj8" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="yLu-Vn-PSf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="lB0-WM-yFJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
