@@ -23,5 +23,8 @@
 @property (weak, nonatomic) id<ProfileViewControllerDelegate> delegate;
 @property (strong, nonatomic) User *currentUser;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *tweetsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followersLabel;
 
 @end

@@ -24,6 +24,7 @@
     }
     
     [self.profileImage setImageWithURL:self.currentUser.profileImageURL];
+    self.tweetsLabel.text = self.currentUser.
 }
 
 - (void)didReceiveMemoryWarning {

@@ -549,11 +549,59 @@
                                     <constraint firstAttribute="width" constant="72" id="fqk-ap-Jdo"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tweets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZA-hc-CiB">
+                                <rect key="frame" x="44" y="155" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STO-ZQ-fnW">
+                                <rect key="frame" x="44" y="184" width="58" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyO-72-U7T">
+                                <rect key="frame" x="16" y="152" width="20" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBA-6i-S2I">
+                                <rect key="frame" x="16" y="210" width="20" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaa-2e-wqR">
+                                <rect key="frame" x="16" y="181" width="20" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwh-cy-uMJ">
+                                <rect key="frame" x="44" y="213" width="58" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NBF-6c-ID1" firstAttribute="top" secondItem="Ueu-Z8-rdr" secondAttribute="bottom" constant="8" id="Gya-Df-vCx"/>
+                            <constraint firstItem="RBA-6i-S2I" firstAttribute="top" secondItem="Aaa-2e-wqR" secondAttribute="bottom" constant="8" id="0yX-dF-HAR"/>
+                            <constraint firstItem="FZA-hc-CiB" firstAttribute="leading" secondItem="VyO-72-U7T" secondAttribute="trailing" constant="8" id="AJ5-bd-zZm"/>
+                            <constraint firstItem="mwh-cy-uMJ" firstAttribute="leading" secondItem="RBA-6i-S2I" secondAttribute="trailing" constant="8" id="CHx-A6-8Hy"/>
+                            <constraint firstItem="STO-ZQ-fnW" firstAttribute="baseline" secondItem="Aaa-2e-wqR" secondAttribute="baseline" id="CTh-mI-RjS"/>
+                            <constraint firstItem="VyO-72-U7T" firstAttribute="top" secondItem="NBF-6c-ID1" secondAttribute="bottom" constant="8" id="JJ0-4Z-thQ"/>
+                            <constraint firstItem="VyO-72-U7T" firstAttribute="baseline" secondItem="FZA-hc-CiB" secondAttribute="baseline" id="UZB-MX-g0c"/>
+                            <constraint firstItem="Aaa-2e-wqR" firstAttribute="top" secondItem="VyO-72-U7T" secondAttribute="bottom" constant="8" id="Yox-vX-0cp"/>
+                            <constraint firstItem="NBF-6c-ID1" firstAttribute="top" secondItem="Ueu-Z8-rdr" secondAttribute="bottom" constant="8" id="ZEP-qw-RsK"/>
+                            <constraint firstItem="VyO-72-U7T" firstAttribute="leading" secondItem="NBF-6c-ID1" secondAttribute="leading" id="ZaC-J7-rtQ"/>
+                            <constraint firstItem="NBF-6c-ID1" firstAttribute="leading" secondItem="Aaa-2e-wqR" secondAttribute="leading" id="a5h-yh-W0j"/>
+                            <constraint firstItem="NBF-6c-ID1" firstAttribute="leading" secondItem="RBA-6i-S2I" secondAttribute="leading" id="cKq-NQ-aTY"/>
                             <constraint firstItem="NBF-6c-ID1" firstAttribute="leading" secondItem="jaX-Pn-RGu" secondAttribute="leadingMargin" id="oCm-RK-k3Q"/>
+                            <constraint firstItem="RBA-6i-S2I" firstAttribute="baseline" secondItem="mwh-cy-uMJ" secondAttribute="baseline" id="v02-qM-chu"/>
+                            <constraint firstItem="STO-ZQ-fnW" firstAttribute="leading" secondItem="Aaa-2e-wqR" secondAttribute="trailing" constant="8" id="yiZ-Mf-I1W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="gWl-Td-f64">
@@ -564,7 +612,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="followersLabel" destination="RBA-6i-S2I" id="bcL-Zf-bJm"/>
+                        <outlet property="followingLabel" destination="Aaa-2e-wqR" id="bBb-PJ-U09"/>
                         <outlet property="profileImage" destination="NBF-6c-ID1" id="1Vz-Vh-YjI"/>
+                        <outlet property="tweetsLabel" destination="VyO-72-U7T" id="v8f-KF-Off"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huS-AI-UT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
